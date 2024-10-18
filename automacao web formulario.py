@@ -8,7 +8,7 @@ import os
 #### pegar dados ##########
 
 caminho = os.getcwd()
-arquivo = caminho + r'\AutomacaoWeb-Formulario\arquivos'
+arquivo = caminho + r'\AutomacaoWeb-Formulario\arquivos\produtos.csv'
 df_produtos = pd.read_csv(arquivo)
 
 
@@ -16,9 +16,9 @@ df_produtos = pd.read_csv(arquivo)
 servico = Service(ChromeDriverManager().install())
 navegador = webdriver.Chrome(service=servico)
 
-arquivo_formulario = caminho + r'\arquivos\Formulario.html'
+arquivo_formulario = caminho + r'\AutomacaoWeb-Formulario\arquivos\Formulario.html'
 # Usar o arquivo Formulario.html caso o site esteja off
-navegador.get("arquivo_formulario")
+navegador.get(arquivo_formulario)
 time.sleep(1)
 
 formularios = navegador.find_elements(By.CLASS_NAME, 'form-campo')
